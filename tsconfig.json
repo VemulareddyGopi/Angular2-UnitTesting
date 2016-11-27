@@ -2,9 +2,22 @@
     "compilerOptions": 
     {
         "target": "es5",
+        "module": "es6",
+        "moduleResolution": "node",
         "experimentalDecorators": true,
-        "emitDecoratorMetadata": true
+        "emitDecoratorMetadata": true,
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "typeRoots": [
+            "../node_modules/@types"
+        ],
+        "types" : [
+                   "core-js",
+                   "node"
+        ]
     },
+
     "exclude": [
         "node_modules",
         "typings"

@@ -8,6 +8,7 @@
 import { inject, async, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { UserService } from '../app/user.service';
 import { LoginService } from '../app/login.service';
+import {} from 'jasmine';
 
 describe('user service', () => {
   beforeEach(() => {
@@ -16,7 +17,7 @@ describe('user service', () => {
     });
   });
 
-    it('should validate email address', inject([UserService], (service) => {
+    it('should validate email address', inject([UserService], (service:any) => {
             service.email="test@test.com";
             expect(service.isValidEmail()).toBe(true);
             service.email="test.test.com";
@@ -25,18 +26,18 @@ describe('user service', () => {
             expect(service.isValidEmail()).toBe(false);
     }));
 
-    it('should greet when login is wrong',inject([UserService],(service)=>{
+    it('should greet when login is wrong',inject([UserService],(service:any)=>{
           service.email="admin@test.com";
           service.password="test123";
-          service.getGreeting().then((greeting)=>{
+          service.getGreeting().then((greeting:any)=>{
             expect(greeting).toEqual('Login failure!');
           });
     }));
 
-    it('should greet when login is right',inject([UserService],(service)=>{
+    it('should greet when login is right',inject([UserService],(service:any)=>{
           service.email="admin@test.com";
           service.password="test@123";
-          service.getGreeting().then((greeting)=>{
+          service.getGreeting().then((greeting:any)=>{
             expect(greeting).toEqual('Welcome');
           });
     }));

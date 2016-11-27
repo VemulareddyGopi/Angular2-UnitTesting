@@ -3,7 +3,7 @@ beforeEach(() => {
 
     toHaveText: function() {
       return {
-        compare: function(actual, expectedText) {
+        compare: function(actual:any, expectedText:any) {
           var actualText = actual.textContent;
           return {
             pass: actualText == expectedText,
@@ -15,7 +15,7 @@ beforeEach(() => {
 
     toContainText: function() {
       return {
-        compare: function(actual, expectedText) {
+        compare: function(actual:any, expectedText:any) {
           var actualText = actual.textContent;
           return {
             pass: actualText.indexOf(expectedText) > -1,
