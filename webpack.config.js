@@ -13,18 +13,33 @@ module.exports={
     },
     module: {
     loaders: [
-      { test: /\.ts$/, loader: 'ts!angular2-template' },
-    //{test: /\.ts$/, exclude: /\.ts$/, loader: 'ts'},      
-      {test: /\.html$/, loader: 'raw'},
-      {test: /\.css$/, loader: 'raw'}
+      {
+         test: /\.ts$/, 
+         use: [            
+            'awesome-typescript-loader',
+            'angular2-template-loader',
+            'angular2-router-loader'
+          ],
+          exclude: [/\.(spec|e2e)\.ts$/] 
+      },
+          
+      {
+        test: /\.html$/,
+        use: 'raw-loader',
+        exclude: [helpers.root('src/index.html')]
+      },
+      {
+        test: /\.css$/, 
+        use: 'raw-loader'
+      }
     ]
   },
     output:{
-        path: './dist',
+        path: '/dist',
         filename: '[name].[hash].js'
     },
     resolve: {
-    extensions: ['', '.js', '.ts', '.html', '.css']
+    extensions: ['.js', '.ts', '.html', '.css']
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
